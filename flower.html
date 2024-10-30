@@ -3,6 +3,65 @@
     <head>
         <title>MOTO's Flower</title>
         <style>
+            body.not-loaded {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.night {
+    background: radial-gradient(circle, #001, #004, #000);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.flowers {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+}
+
+.flower {
+    position: relative;
+    animation: bloom 3s ease-in-out forwards;
+}
+
+.flower__leafs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    animation: grow 2s ease forwards;
+}
+
+.flower__leaf {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: pink;
+    position: absolute;
+}
+
+/* Additional animations */
+@keyframes grow {
+    to { transform: scale(1); }
+}
+
+@keyframes bloom {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
             *,
 *::after,
 *::before {
